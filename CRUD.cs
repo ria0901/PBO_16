@@ -43,7 +43,7 @@ namespace GajiKu
 
             } catch (Exception ex)
             {
-                MessageBox.Show("Ada error !!" + ex.Message);
+                MessageBox.Show("Ada error !!   " + ex.Message);
                 dt = null;
             }
 
