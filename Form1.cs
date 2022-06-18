@@ -191,13 +191,13 @@ namespace GajiKu
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form2 fm2 = new Form2();
+            Hrd fm2 = new Hrd();
             fm2.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Form3 fm3 = new Form3();
+            Form fm3 = new Form3();
             fm3.ShowDialog();
         }
     }

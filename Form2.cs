@@ -12,11 +12,11 @@ using System.Numerics;
 
 namespace GajiKu
 {
-    public partial class Form2 : Form
+    public partial class Hrd : Form
     {
         private string id = "";
         private int intRow = 0;
-        public Form2()
+        public Hrd()
         {
             InitializeComponent();
             resetMe();
