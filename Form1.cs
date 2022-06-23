@@ -127,7 +127,7 @@ namespace GajiKu
             resetMe();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {

@@ -32,5 +32,20 @@ namespace GajiKu
             }
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "karyawan" && textBox2.Text == "123")
+            {
+                new Form5().Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Username atau Password salah !!");
+                textBox1.Clear();
+                textBox2.Clear();
+            }
+        }
     }
 }
