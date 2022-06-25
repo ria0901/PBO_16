@@ -12,12 +12,11 @@ using System.Numerics;
 
 namespace GajiKu
 {
-    public partial class GajiKu : Form
+    public partial class Hrd : Form
     {
         private string id = "";
         private int intRow = 0;
-
-        public GajiKu()
+        public Hrd()
         {
             InitializeComponent();
             resetMe();
@@ -34,14 +33,14 @@ namespace GajiKu
             textBox5.Text = "";
         }
 
-        private void GajiKu_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
             loadData("");
         }
 
         private void loadData(string keyword)
         {
-            CRUD.sql = "SELECT * FROM karyawan";
+            CRUD.sql = "SELECT * FROM hrd";
 
             string strKeyword = string.Format("%{0}%", keyword);
 
@@ -54,7 +53,8 @@ namespace GajiKu
             if (dt.Rows.Count > 0)
             {
                 intRow = Convert.ToInt32(dt.Rows.Count.ToString());
-            } else
+            }
+            else
             {
                 intRow = 0;
             }
@@ -72,8 +72,8 @@ namespace GajiKu
             dgv1.Columns[2].HeaderText = "Alamat";
             dgv1.Columns[3].HeaderText = "No HP";
             dgv1.Columns[4].HeaderText = "E - Mail";
-            dgv1.Columns[5].HeaderText = "Password";
-            dgv1.Columns[6].HeaderText = "Jenis Kelamin";
+            dgv1.Columns[5].HeaderText = "Jenis Kelamin";
+            dgv1.Columns[6].HeaderText = "Password";
 
             dgv1.Columns[0].Width = 50;
             dgv1.Columns[1].Width = 100;
@@ -95,7 +95,7 @@ namespace GajiKu
 
         private void addParameters(string str)
         {
-            
+
 
             CRUD.cmd.Parameters.Clear();
             CRUD.cmd.Parameters.AddWithValue("nama", textBox1.Text.Trim());
@@ -118,7 +118,7 @@ namespace GajiKu
                 return;
             }
 
-            CRUD.sql = "INSERT INTO karyawan(nama, alamat, nomorhp, email, jenkel) values (@nama, @alamat, @nomorhp, @email, @jenkel)";
+            CRUD.sql = "INSERT INTO hrd(nama, alamat, nomorhp, email, jenkel) values (@nama, @alamat, @nomorhp, @email, @jenkel)";
 
             execute(CRUD.sql, "Insert");
 
@@ -127,7 +127,7 @@ namespace GajiKu
             resetMe();
         }
 
-        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
@@ -141,7 +141,7 @@ namespace GajiKu
                 textBox2.Text = Convert.ToString(dgv1.CurrentRow.Cells[2].Value);
                 textBox3.Text = Convert.ToString(dgv1.CurrentRow.Cells[3].Value);
                 textBox4.Text = Convert.ToString(dgv1.CurrentRow.Cells[4].Value);
-                textBox5.Text = Convert.ToString(dgv1.CurrentRow.Cells[6].Value);
+                textBox5.Text = Convert.ToString(dgv1.CurrentRow.Cells[5].Value);
             }
         }
 
@@ -157,7 +157,7 @@ namespace GajiKu
                 return;
             }
 
-            CRUD.sql = "UPDATE karyawan SET nama = @nama, alamat = @alamat, nomorhp = @nomorhp, email = @email, jenkel = @jenkel WHERE id_karyawan = @id::integer";
+            CRUD.sql = "UPDATE hrd SET nama = @nama, alamat = @alamat, nomorhp = @nomorhp, email = @email, jenkel = @jenkel WHERE id_hrd = @id::integer";
 
             execute(CRUD.sql, "Update");
             MessageBox.Show("Telah di update");
@@ -179,7 +179,7 @@ namespace GajiKu
                 return;
             }
 
-            CRUD.sql = "DELETE FROM karyawan WHERE id_karyawan = @id::integer";
+            CRUD.sql = "DELETE FROM hrd WHERE id_hrd = @id::integer";
 
             execute(CRUD.sql, "Delete");
             MessageBox.Show("Telah di hapus");
@@ -187,18 +187,6 @@ namespace GajiKu
             loadData("");
 
             resetMe();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Hrd fm2 = new Hrd();
-            fm2.ShowDialog();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form fm3 = new Form3();
-            fm3.ShowDialog();
         }
     }
 }

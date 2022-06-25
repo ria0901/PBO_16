@@ -16,7 +16,7 @@ namespace GajiKu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GajiKu());
+            Application.Run(new Form4());
         }
     }
 }
